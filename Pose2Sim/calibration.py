@@ -278,7 +278,7 @@ def read_vicon(vicon_path):
         raise FileNotFoundError(f'No video folder found at {video_path}. Required for Vicon calibration.')
     
     for cam_elem in root.findall('Camera'):
-        if cam_elem.attrib.get('SYSTEM') == 'DV':
+        if cam_elem.attrib.get('SYSTEM') == 'DV' or cam_elem.attrib.get('TYPE') == 'Vue_VIDEO':
             vid_ids += [vid_id]
             vid_id += 1
 
